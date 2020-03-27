@@ -5,12 +5,26 @@ const ProfileController = require('./controllers/ProfileController')
 const SessionController = require('./controllers/SessionController')
 const routes = express.Router()
 
-routes.post('/sessions', SessionController.create)
-routes.get('/ongs', OngController.index)
-routes.post('/ongs', OngController.create)
-routes.get('/incidents', IncidentController.index)
-routes.post('/incidents', IncidentController.create)
-routes.delete('/incidents/:id', IncidentController.delete)
-routes.get('/profile', ProfileController.index)
+routes.post('/sessions', (req, res) => {
+  SessionController.create
+})
+routes.get('/ongs', (req, res) => {
+  OngController.index
+})
+routes.post('/ongs', (req, res) => {
+  OngController.create
+})
+routes.get('/incidents', (req, res) => {
+  IncidentController.index
+})
+routes.post('/incidents', (req, res) => {
+  IncidentController.create
+})
+routes.delete('/incidents/:id', (req, res) => {
+  IncidentController.delete
+})
+routes.get('/profile', (req, res) => {
+  ProfileController.index
+})
 
 module.exports = routes
